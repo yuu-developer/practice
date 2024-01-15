@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'staticpages#top'
   get 'home/top'
   devise_for :users
   # devise_scope :user do
