@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/map', to: 'maps#show'
   root 'staticpages#top'
   get 'home/top'
   devise_for :users
