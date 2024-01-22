@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get '/map', to: 'maps#show'
   root 'staticpages#top'
+  resources :boards, only: [:index, :new, :create, :edit, :update, :destroy]
   get 'home/top'
   devise_for :users
   # devise_scope :user do
