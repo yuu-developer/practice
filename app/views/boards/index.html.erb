@@ -1,0 +1,67 @@
+<!-- index.html.erb -->
+
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+
+  h2 {
+    color: #007bff;
+    margin-bottom: 5px;
+  }
+
+  p {
+    color: #555;
+  }
+
+  span {
+    display: block;
+    margin-top: 5px;
+    color: #888;
+  }
+
+  div.no-boards {
+    text-align: center;
+    color: #555;
+    padding: 20px;
+    background-color: #eee;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+</style>
+
+<div class="container">
+  <h1>掲示板一覧</h1>
+  <% if @boards.present? %>
+    <% @boards.each do |board| %>
+      <div class="board">
+        <h2><%= board.title %></h2>
+        <p><%= board.body %></p>
+        <span>
+          <small><%= board.created_at %></small>
+        </span>
+        <%= link_to "編集" , edit_board_path(board) %>
+        <%= button_to "削除" ,  board_path(board) , method: :delete %>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="no-boards">掲示板がありません</div>
+  <% end %>
+</div>

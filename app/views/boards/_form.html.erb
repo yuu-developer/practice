@@ -1,0 +1,11 @@
+<%= form_with model: @board do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :body %>
+    <%= f.text_area :body, row: "10", style: "height: 200px" %>
+  </div>
+  <div><%= f.submit  %></div>
+<% end %>
